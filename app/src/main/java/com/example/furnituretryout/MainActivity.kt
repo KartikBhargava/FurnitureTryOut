@@ -1,4 +1,5 @@
 package com.example.furnituretryout
+
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -65,9 +66,9 @@ class MainActivity : AppCompatActivity() {
     private fun setupDoubleTapArPlaneListener() {
         var firstTapTime = 0L
         arFragment.setOnTapArPlaneListener { hitResult, _, _ ->
-            if(firstTapTime == 0L) {
+            if (firstTapTime == 0L) {
                 firstTapTime = System.currentTimeMillis()
-            } else if(System.currentTimeMillis() - firstTapTime < DOUBLE_TAP_TOLERANCE_MS) {
+            } else if (System.currentTimeMillis() - firstTapTime < DOUBLE_TAP_TOLERANCE_MS) {
                 firstTapTime = 0L
                 loadModel { modelRenderable, viewRenderable ->
                     addNodeToScene(hitResult.createAnchor(), modelRenderable, viewRenderable)
@@ -117,15 +118,15 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun rotateViewNodesTowardsUser(){
-        for(node in viewNodes){
-           node.renderable?.let{
-               val camPos = getCurrentScene().camera.worldPosition
-               val viewNodePos = node.worldPosition
-               val dir = Vector3.subtract(camPos, viewNodePos)
-               // for rotation
-               node.worldRotation = Quaternion.lookRotation(dir, Vector3.up())
-           }
+    private fun rotateViewNodesTowardsUser() {
+        for (node in viewNodes) {
+            node.renderable?.let {
+                val camPos = getCurrentScene().camera.worldPosition
+                val viewNodePos = node.worldPosition
+                val dir = Vector3.subtract(camPos, viewNodePos)
+                // for rotation
+                node.worldRotation = Quaternion.lookRotation(dir, Vector3.up())
+            }
         }
     }
 
@@ -148,13 +149,13 @@ class MainActivity : AppCompatActivity() {
             localPosition = Vector3(0f, box.size.y, 0f)
             (viewRenderable.view as Button).setOnClickListener {
                 getCurrentScene().removeChild(anchorNode)
-                viewNodes.remove(this )
+                viewNodes.remove(this)
             }
         }
         viewNodes.add(viewNode)
         modelNode.setOnTapListener { _, _ ->
-            if(!modelNode.isTransforming) {
-                if(viewNode.renderable == null) {
+            if (!modelNode.isTransforming) {
+                if (viewNode.renderable == null) {
                     viewNode.renderable = viewRenderable
                 } else {
                     viewNode.renderable = null

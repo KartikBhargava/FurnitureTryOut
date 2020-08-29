@@ -58,7 +58,6 @@ class PhotoSaver(
         }
     }
 
-
     private fun saveDataToGallery(bmp:Bitmap, outputStream: OutputStream){
         val outputData = ByteArrayOutputStream()
         bmp.compress(Bitmap.CompressFormat.JPEG, 100, outputData)
@@ -66,6 +65,7 @@ class PhotoSaver(
         outputStream.flush()
         outputStream.close()
     }
+
     fun takePhoto(arSceneView: ArSceneView) {
         val bmp = Bitmap.createBitmap(arSceneView.width, arSceneView.height, Bitmap.Config.ARGB_8888)
         val handlerThread = HandlerThread("PixelCopyThread")
