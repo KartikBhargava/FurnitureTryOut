@@ -3,6 +3,7 @@ package com.example.furnituretryout
 import android.app.Activity
 import android.content.ContentValues
 import android.graphics.Bitmap
+import android.media.MediaScannerConnection
 import android.os.Build
 import android.os.Environment
 import android.os.Handler
@@ -53,6 +54,7 @@ class PhotoSaver(
         try {
             val outputStream = FileOutputStream(fileName)
             saveDataToGallery(bmp, outputStream)
+            MediaScannerConnection.scanFile(activity, arrayOf(fileName), null, null)
         } catch (e:IOException){
             Toast.makeText(activity, "Failed to save bitmap to Gallery.", Toast.LENGTH_LONG).show()
         }
