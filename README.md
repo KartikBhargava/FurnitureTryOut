@@ -153,16 +153,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Some furniture models might take time to load
 - AR tracking quality depends on lighting conditions
 
-## 🔮 Future Enhancements
-
-- [ ] Cloud-based furniture catalog
-- [ ] Social sharing features
-- [ ] Measurement tools
-- [ ] Lighting simulation
-- [ ] Multiple furniture placement
-- [ ] Room scanning and mapping
-- [ ] Price comparison integration
-
----
-
 *Made with ❤️ by Kartik Bhargava*
